@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+#  db:
+#    image: mariadb
+#    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+#    restart: always
+#    volumes:
+#      - db:/var/lib/mysql
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=
+#    env_file:
+#      - db.env
+
+  redis:
+    image: redis:alpine
+    container_name: nextcloud-redis-alpine
+    restart: always
+    networks:
+      - nextcloud_net
+
+  app:
+#    build: ./smb/
+    image: gpopesc/nc-apache:latest
+    container_name: nextcloud-apache
+    restart: always
+    ports:
+      - 5081:80 
+    expose:
+      - 80
+    volumes:
+      - /volume1/nextcloud:/var/www/html
+    environment:
+      - MYSQL_HOST=192.168.1.100:3306
+      - MYSQL_PASSWORD=pass
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+#      - MYSQL_PORT=3306
+      - REDIS_HOST=redis
+#    env_file:
+#      - db.env
+    depends_on:
+#      - db
+      - redis
+#    network_mode: bridge
+    networks:
+      - nextcloud_net
+
+
+  cron:
+    image: nextcloud:apache
+    container_name: nextcloud-cron
+    restart: always
+    volumes:
+      - /volume1/nextcloud:/var/www/html
+    entrypoint: /cron.sh
+    depends_on:
+#      - db
+      - redis
+    networks:
+      - nextcloud_net
+
+#volumes:
+#  db:
+#  nextcloud:
+  
+
+
+networks:
+   nextcloud_net:

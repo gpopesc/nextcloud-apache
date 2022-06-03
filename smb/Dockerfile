@@ -10,6 +10,8 @@ RUN set -ex; \
         smbclient \
         supervisor \
 #       libreoffice \
+        sudo \
+        nano \
     ; \
     rm -rf /var/lib/apt/lists/*
 

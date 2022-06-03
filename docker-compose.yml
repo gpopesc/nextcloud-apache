@@ -32,9 +32,9 @@ services:
       - /volume1/nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=192.168.1.100:3306
-      - MYSQL_PASSWORD=pass
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=user
+      - MYSQL_PASSWORD=your_pass
+      - MYSQL_DATABASE=your_database
+      - MYSQL_USER=your_database_user
 #      - MYSQL_PORT=3306
       - REDIS_HOST=redis
 #    env_file:

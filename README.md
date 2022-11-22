@@ -1,5 +1,5 @@
 # nextcloud-apache
-complete docker image for nextcloud including redis, samba, cron - upgrade to version 24.0.6
+complete docker image for nextcloud including redis, samba, cron - upgrade to version 24.0.7
 
 created for synology, use internal mariadb
 

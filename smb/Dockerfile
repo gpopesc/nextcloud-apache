@@ -55,7 +55,8 @@ RUN mkdir -p \
 ;
 
 COPY ./smb/supervisord.conf /
-
+COPY ./smb/startup.sh /
+RUN chmod +x /startup.sh
 
 ENV NEXTCLOUD_UPDATE=1
 

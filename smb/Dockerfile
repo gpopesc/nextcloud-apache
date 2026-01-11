@@ -1,4 +1,4 @@
-FROM nextcloud:latest
+rm nextcloud:latest
 
 RUN set -ex; \
     \
@@ -13,7 +13,7 @@ RUN set -ex; \
         sudo \
         nano \
     ; \
-    rm -rf /var/lib/apt/lists/*
+ #   rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
     \

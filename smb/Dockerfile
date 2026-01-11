@@ -12,7 +12,7 @@ RUN set -ex; \
 #       libreoffice \
         sudo \
         nano \
-    ; \
+    ; 
  #   rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \

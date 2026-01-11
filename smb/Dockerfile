@@ -1,4 +1,4 @@
-rm nextcloud:latest
+from nextcloud:latest
 
 RUN set -ex; \
     \

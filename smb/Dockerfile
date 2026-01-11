@@ -1,19 +1,18 @@
-from nextcloud:latest
+FROM nextcloud:apache
 
 RUN set -ex; \
     \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         ffmpeg \
+        ghostscript \
         libmagickcore-6.q16-6-extra \
         procps \
         smbclient \
         supervisor \
 #       libreoffice \
-        sudo \
-        nano \
-    ; 
- #   rm -rf /var/lib/apt/lists/*
+    ; \
+    rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
     \

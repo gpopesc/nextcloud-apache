@@ -1,4 +1,4 @@
-FROM nextcloud:apache
+FROM nextcloud:34-apache
 
 RUN set -ex; \
     apt-get update; \
